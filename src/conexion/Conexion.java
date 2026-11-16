@@ -1,27 +1,41 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package conexion;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
+
+/**
+ * Conexión a SQL Server.
+ * El servidor, el usuario y la contraseña se leen de config.properties (en la carpeta del
+ * proyecto), que no se sube al repositorio. Ver config.example.properties.
+ */
 public class Conexion {
-     public Connection conectar() {
+
+    private static final String ARCHIVO = "config.properties";
+
+    public Connection conectar() {
 
         Connection con = null;
 
         try {
 
-            String url = "jdbc:sqlserver://localhost:58496;"+ "databaseName=Hersil;" + "encrypt=true;" + "trustServerCertificate=true;";
+            Properties config = leerConfiguracion();
 
-            String user = "HersilAdmin"; 
-            String password = "pollofrito123";
-
-            con = DriverManager.getConnection(url, user, password);
+            con = DriverManager.getConnection(
+                    config.getProperty("db.url"),
+                    config.getProperty("db.user"),
+                    config.getProperty("db.password"));
 
             System.out.println("Conexión exitosa");
+
+        } catch (IOException e) {
+
+            System.out.println("Falta el archivo " + ARCHIVO
+                    + ": copia config.example.properties con ese nombre y pon tus datos. (" + e.getMessage() + ")");
 
         } catch (SQLException e) {
 
@@ -31,5 +45,13 @@ public class Conexion {
 
         return con;
     }
-   
+
+    private Properties leerConfiguracion() throws IOException {
+        Properties config = new Properties();
+        try (InputStream in = new FileInputStream(ARCHIVO)) {
+            config.load(in);
+        }
+        return config;
+    }
+
 }

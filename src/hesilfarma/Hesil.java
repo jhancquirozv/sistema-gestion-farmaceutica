@@ -291,7 +291,8 @@ public class Hesil extends javax.swing.JFrame {
                       String datos[] = linea.split(",");
                       String userTXT = datos[0];
                       String passTXT = datos[1];   
-                      if(usuario.equals(userTXT) && contra.equals(passTXT))
+                      // En usuarios.txt la contraseña está cifrada (ver seguridad.Claves)
+                      if(usuario.equals(userTXT) && seguridad.Claves.verificar(contra, passTXT))
                       {
                           acceso = true;
                           break;
@@ -322,17 +323,18 @@ public class Hesil extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
         //</editor-fold>
+        // Aspecto moderno para todas las ventanas (FlatLaf). Si la librería no está, se usa el aspecto por defecto.
+        try {
+            javax.swing.UIManager.put("Button.arc", 10);
+            javax.swing.UIManager.put("Component.arc", 10);
+            javax.swing.UIManager.put("TextComponent.arc", 10);
+            javax.swing.UIManager.put("ScrollBar.showButtons", false);
+            javax.swing.UIManager.put("Table.showHorizontalLines", true);
+            javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatLightLaf());
+        } catch (Exception | LinkageError ex) {
+            logger.log(java.util.logging.Level.WARNING, "No se pudo aplicar FlatLaf", ex);
+        }
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Hesil().setVisible(true));

@@ -1,3 +1,4 @@
-admin,1234
-dickson,777
-skereboy,333
+admin,pbkdf2$120000$Ev5Tgqc+K+Lt1Kb/+XOjpw==$+o3bWkI+X1wHqez5wKH16b5+a8vQDE8uRLkqhDRf+Oo=
+dickson,pbkdf2$120000$+z3z67NO+Q2ZcHzMbkApPg==$gy8sEOmoBhMV8r8N5qQimbQhDubVD0fzNOanAwXBncE=
+skereboy,pbkdf2$120000$tEzcqPWqXZEMFaebwDK9TQ==$reSwRcf5oW9jsVxSyoC6AaaN0Rsh107B5ouDZhztG3g=
+demo,pbkdf2$120000$+gHGl7nBKHmGI3AJn3Stsw==$Zqh48z8NhyHmj62gEowSnBB/lTwWQ7SOZ+bkvqS3vAE=
