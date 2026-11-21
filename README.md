@@ -1,6 +1,6 @@
 # Sistema de Gestión Farmacéutica
 
-Aplicación de escritorio para llevar las ventas, el inventario y los clientes de una farmacia. Proyecto académico del curso de Programación Orientada a Objetos (Ingeniería de Sistemas, Universidad Privada del Norte).
+Aplicación de escritorio para llevar las ventas, el inventario y los clientes de una farmacia. Proyecto académico del curso de Programación Orientada a Objetos (Ingeniería de Sistemas, Universidad Privada del Norte). Trabajo en equipo; me encargué del desarrollo: interfaz, lógica y base de datos.
 
 > Proyecto con fines educativos. No está afiliado a ninguna empresa; los nombres y logotipos que aparecen se usaron solo como caso de estudio.
 
