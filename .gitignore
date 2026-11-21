@@ -1,6 +1,6 @@
 /build/
 /dist/
 
-# Datos de conexion locales
+# conexion
 /config.properties
 /nbproject/private/

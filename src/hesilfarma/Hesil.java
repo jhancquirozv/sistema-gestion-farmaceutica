@@ -291,7 +291,6 @@ public class Hesil extends javax.swing.JFrame {
                       String datos[] = linea.split(",");
                       String userTXT = datos[0];
                       String passTXT = datos[1];   
-                      // En usuarios.txt la contraseña está cifrada (ver seguridad.Claves)
                       if(usuario.equals(userTXT) && seguridad.Claves.verificar(contra, passTXT))
                       {
                           acceso = true;
@@ -324,7 +323,7 @@ public class Hesil extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         //</editor-fold>
-        // Aspecto moderno para todas las ventanas (FlatLaf). Si la librería no está, se usa el aspecto por defecto.
+        // FlatLaf
         try {
             javax.swing.UIManager.put("Button.arc", 10);
             javax.swing.UIManager.put("Component.arc", 10);

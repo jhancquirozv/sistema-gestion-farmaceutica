@@ -8,11 +8,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-/**
- * Conexión a SQL Server.
- * El servidor, el usuario y la contraseña se leen de config.properties (en la carpeta del
- * proyecto), que no se sube al repositorio. Ver config.example.properties.
- */
 public class Conexion {
 
     private static final String ARCHIVO = "config.properties";
